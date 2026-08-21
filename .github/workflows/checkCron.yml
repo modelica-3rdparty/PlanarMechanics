@@ -40,8 +40,9 @@ jobs:
       - name: Check for spelling errors
         run: |
           printf "[codespell]\nenable-colors=\n" >> .codespellrc
-          codespell -L nin ./PlanarMechanics/Utilities/Blocks/SquaretimesSign.mo
-          codespell --skip ./.CI,./.github,./.git,*.png -L nin
+          codespell -L nin   ./PlanarMechanics/Utilities/Blocks/SquaretimesSign.mo
+          codespell -L tread ./PlanarMechanics/Visualizers/Advanced/Wheel.mo
+          codespell --skip ./.CI,./.github,./.git,*.png -L nin,tread
   clean_workflow_runs:
     timeout-minutes: 5
     if: github.repository_owner == 'dzimmer'
