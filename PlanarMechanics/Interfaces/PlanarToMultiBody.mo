@@ -23,7 +23,7 @@ equation
   //define force vector in inertial system
   f0 = MB.Frames.resolve1(planarWorld.R,{frame_a.fx, frame_a.fy, fz});
   //the MulitBody force vector is resolved within the body system
-  f0*frame_b.R.T + frame_b.f = zeros(3);
+  f0 + MB.Frames.resolve1(frame_b.R, frame_b.f) = zeros(3);
   //connect the torque
   frame_a.t + MB.Frames.resolve2(planarWorld.R,frame_b.t)*{0,0,1} = 0;
   //This element determines the orientation matrix fully, hence it is a "root-element"
