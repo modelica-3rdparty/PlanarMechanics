@@ -25,7 +25,7 @@ equation
   //the MulitBody force vector is resolved within the body system
   f0 + MB.Frames.resolve1(frame_b.R, frame_b.f) = zeros(3);
   //connect the torque
-  frame_a.t + MB.Frames.resolve2(planarWorld.R,frame_b.t)*{0,0,1} = 0;
+  frame_a.t + MB.Frames.resolve2(planarWorld.R, MB.Frames.resolve1(frame_b.R, frame_b.t))*{0,0,1} = 0;
   //This element determines the orientation matrix fully, hence it is a "root-element"
   Connections.root(frame_b.R);
 
